@@ -1,0 +1,30 @@
+<div class="ui active inverted dimmer" ng-show="rc.isLoading">
+  <div class="ui text loader">Loading</div>
+</div>
+<div class="ui container" ng-hide="rc.isLoading">
+  <h1>Reservations</h1>
+
+  <div class="ui stackable grid reservations">
+    <div class="four wide column" ng-repeat="r in rc.reservations">
+      <div class="ui card">
+        <div class="image">
+          <img ng-src="{{r._space.image_url}}">
+        </div>
+        <div class="content">
+          <a ui-sref="reservationsShow({id: r._id})" class="header">{{r._space.title}}</a>
+          <div class="description">
+            <p>{{ r._space.address.line_1 }}<br>
+            <span ng-show="r._space.address.line_2.length > 0">{{ r._space.address.line_2 }}<br></span>
+            {{ r._space.address.city }}, {{ r._space.address.state }} {{ r._space.address.zip_code }}</p>
+            <p>{{ r._space.description }}</p>
+          </div>
+        </div>
+        <div class="extra content">
+          <a>
+            <span>{{ r.date.from | date }} - {{ r.date.to | date }}</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,77 @@
+<div class="ui active inverted dimmer" ng-show="snc.isLoading">
+  <div class="ui text loader">Loading</div>
+</div>
+<div class="ui container" ng-hide="snc.isLoading">
+  <h1>Space for rent</h1>
+  <!-- <div class="ui grid"> -->
+    <form class="ui form stackable grid" ng-submit="snc.createSpace()">
+      <div class="eight wide column">
+        <div class="field">
+          <label>Title</label>
+          <input type="text" placeholder="Parking space in Santa Monica" ng-model="snc.newSpace.title">
+        </div>
+        <div class="field">
+          <label>Type</label>
+          <input type="text" placeholder="Indoor/Outdoor" ng-model="snc.newSpace.type">
+        </div>
+        <div class="field">
+          <label>Space #</label>
+          <input type="text" placeholder="123" ng-model="snc.newSpace.number">
+        </div>
+        <div class="field">
+          <label>Photo</label>
+          <input type="file" id="file-input">
+          <input type="hidden" id="avatar-url" ng-model="snc.newSpace.image_url">
+        </div>
+
+        <img id="preview" ng-src="{{ snc.photo_ur }}">
+
+      </div>
+      <div class="eight wide column">
+        <div class="ui stackablegrid">
+          <div class="eight wide column">
+            <div class="field">
+              <label>Address</label>
+              <input type="text" placeholder="Street Line 1" ng-model="snc.newSpace.address.line_1">
+            </div>
+          </div>
+
+          <div class="eight wide column">
+            <div class="field">
+              <label>&nbsp;</label>
+              <input type="text" placeholder="Street Line 2" ng-model="snc.newSpace.address.line_2">
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <br>
+          <label>City</label>
+          <input type="text" placeholder="City" ng-model="snc.newSpace.address.city">
+        </div>
+
+        <div class="ui stackable grid">
+          <div class="eight wide column">
+            <div class="field">
+              <label>State</label>
+              <input type="text" placeholder="State" ng-model="snc.newSpace.address.state">
+            </div>
+          </div>
+
+          <div class="eight wide column">
+            <div class="field">
+              <label>Zip Code</label>
+              <input type="text" placeholder="Zip Code" ng-model="snc.newSpace.address.zip_code">
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <br>
+          <label>Description</label>
+          <textarea placeholder="Description" ng-model="snc.newSpace.address.description"></textarea>
+        </div>
+      </div>
+      <button class="ui button" type="submit">Submit</button>
+    </form>
+  <!-- </div> -->
+</div>

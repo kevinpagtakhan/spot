@@ -1,0 +1,73 @@
+<div class="ui active inverted dimmer" ng-show="ssc.isLoading">
+  <div class="ui text loader">Loading</div>
+</div>
+<div class="ui container" ng-hide="ssc.isLoading">
+
+  <div class="ui stackable grid">
+    <div class="ten wide column">
+      <h3 class="ui top attached header">
+        {{ ssc.space.title }}
+      </h3>
+      <iframe id="mymap"
+        frameborder="0" style="border:0"
+         allowfullscreen>
+      </iframe>
+
+      <h3 class="ui top attached header">
+        Reviews
+      </h3>
+      <div class="ui attached padded segment">
+        {{ ssc.space.reviews }}
+      </div>
+    </div>
+
+    <div class="six wide column">
+      <h3 class="ui top attached header">
+        Details
+      </h3>
+      <div class="ui attached padded segment">
+        <p>
+          <img class="" ng-src="{{ ssc.space.image_url }}" />
+        </p>
+        <p>
+          <strong>Address</strong><br>
+          {{ ssc.space.address.line_1 }}<br>
+          <span ng-show="rsc.reservation._space.address.line_2">
+            {{ ssc.space.address.line_2 }}<br>
+          </span>
+          {{ ssc.space.address.city }}, {{ ssc.space.address.state }}{{ ssc.space.address.zip_code }}
+        </p>
+        <a class="ui teal image label">
+          <img ng-src="{{ ssc.space._by.image_url }}">
+          {{ ssc.space._by.name }}
+          <div class="detail">Host</div>
+        </a>
+      </div>
+
+      <h3 class="ui top attached header">
+        Reserve Now
+      </h3>
+      <div class="ui attached padded segment">
+        <form class="ui form" ng-submit="ssc.reserveSpace()">
+
+          <div class="field">
+            <label>To</label>
+            <input type="date" ng-model="ssc.details.date.from">
+          </div>
+
+          <div class="field">
+            <label>From</label>
+            <input type="date" ng-model="ssc.details.date.to">
+          </div>
+
+          <div class="field">
+            <label>Message to host</label>
+            <textarea placeholder="Say hello" ng-model="ssc.details.description"></textarea>
+          </div>
+
+          <button class="ui button" type="submit">Reserve</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

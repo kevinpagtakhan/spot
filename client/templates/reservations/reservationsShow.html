@@ -1,0 +1,80 @@
+<div class="ui active inverted dimmer" ng-show="rsc.isLoading">
+  <div class="ui text loader">Loading</div>
+</div>
+<div class="ui container" ng-hide="rsc.isLoading">
+
+  <div class="ui stackable grid">
+    <div class="ten wide column">
+      <h3 class="ui top attached header">
+        Reservation
+      </h3>
+      <div class="ui attached padded segment">
+        <img class="dash-avatar" ng-src="{{ rsc.reservation._space.image_url }}" />
+        <a><h3>{{ rsc.reservation._space.title }}</h3></a><br>
+
+        <p>
+          <strong>Dates</strong><br>
+          {{ rsc.reservation.date.from | date }} - {{ rsc.reservation.date.to | date }}
+        </p>
+        <p>{{ rsc.reservation._space.description }}</p>
+
+        <p ng-model="rsc.address.origin">
+          <strong>Address</strong><br>
+          {{ rsc.reservation._space.address.line_1 }}<br>
+          <span ng-show="rsc.reservation._space.address.line_2">
+            {{ rsc.reservation._space.address.line_2 }}<br>
+          </span>
+          {{ rsc.reservation._space.address.city }}, {{ rsc.reservation._space.address.state }}{{ rsc.reservation.address._space.zip_code }}
+        </p>
+
+        <p ng-hide="rsc.reservation.confirmed" class="gray"><i class="warning circle icon"></i> Pending</p>
+        <p ng-show="rsc.reservation.confirmed" class="success"><i class="check circle icon"></i> Confirmed</p>
+      </div>
+
+      <h3 class="ui top attached header">
+        Messages
+      </h3>
+      <div class="ui attached padded segment">
+        <div class="ui comments">
+          <div class="comment" ng-repeat="message in rsc.reservation.messages">
+            <a class="avatar">
+              <img ng-src="{{message._by.image_url}}">
+            </a>
+            <div class="content">
+              <span class="author">{{message._by.name}}</span>
+              <div class="text">
+                <p>{{message.content}}</p>
+              </div>
+              <div class="actions">
+                <a class="reply">{{message.createdAt | date}}</a>
+              </div>
+            </div>
+            <br>
+          </div>
+        </div>
+        <div class="ui form">
+          <div class="inline fields">
+            <div class="fourteen wide field">
+              <input type="text" placeholder="Message" ng-model="rsc.message.content">
+            </div>
+            <div class="two wide field">
+              <input type="button" class="ui button" value="Send" ng-click="rsc.sendMessage()">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="six wide column">
+      <h3 class="ui top attached header">
+        Location
+      </h3>
+      <iframe id="mymap"
+        frameborder="0" style="border:0"
+         allowfullscreen>
+      </iframe>
+
+    </div>
+  </div>
+
+</div>

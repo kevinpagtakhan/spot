@@ -1,0 +1,116 @@
+.ui.page.main{
+  padding-top: 80px;
+}
+
+h1, h2, h3, h4, h5, h6{
+  color: #000;
+}
+
+img{
+  max-width: 100%;
+}
+
+.ui.footer.segment {
+  background-image: url('http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/cartographer.png');
+    margin: 5em 0em 0em;
+    padding: 3em 0em;
+}
+
+iframe{
+  width: 100%;
+  height: 600px;
+}
+
+#file-input{
+  /*display: none;*/
+}
+
+.ui.cards > .card, .ui.card{
+  width: 100%;
+}
+
+.segment{
+  overflow: auto;
+}
+
+.dash-avatar{
+  float: right;
+  max-width: 200px;
+  border-radius: 5px;
+}
+
+.home{
+  background-image: url('http://cdn.paper4pc.com/images/city-background-wallpaper-1.jpg');
+}
+
+.site-title{
+  font-size: 100px;
+  text-shadow: 1px 1px 1px #000;
+}
+
+.site-subtitle{
+  font-size: 40px;
+}
+
+.site-writeup{
+  font-size: 24px;
+}
+
+.container{
+  padding-top: 60px;
+  padding-bottom: 80px;
+}
+
+footer .container{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.hide{
+  display: none;
+}
+
+.no-margin{
+  margin: 0
+}
+
+footer{
+
+}
+
+.gray{
+  color: #999;
+}
+
+.ui.menu .brand{
+  font-size: 24px;
+}
+
+.top.attached.header{
+  background: #00848B;
+  color: #fff;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+a{
+  color: #ff5a5f;
+}
+
+a:hover{
+  color: #ff7f83;
+}
+
+.success{
+  color: green;
+}
+
+.ui.button{
+  background-color: #00848B;
+  color: #fff;
+}
+
+.ui.button:hover{
+  background-color: #138f96;
+  color: #fff;
+}

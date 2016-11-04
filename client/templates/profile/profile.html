@@ -1,0 +1,123 @@
+<div class="ui active inverted dimmer" ng-show="pc.isLoading">
+  <div class="ui text loader">Loading</div>
+</div>
+<div class="ui container" ng-hide="pc.isLoading">
+  <div class="ui stackable grid">
+    <div class="four wide column">
+      <h3 class="ui top attached header">
+        Hello!
+      </h3>
+      <div class="ui attached segment center aligned">
+        <label for="file-input">
+          <img id="default-preview" ng-hide="pc.user.image_url" src="http://placehold.it/300" alt="" />
+          <img id="preview" ng-show="pc.user.image_url" ng-src="{{pc.user.image_url}}" alt="" />
+        </label>
+        <input type="file" id="file-input" class="hide">
+        <input type="hidden" id="avatar-url">
+        <h2>{{ pc.user.username }}</h2>
+        <p>{{ pc.user.name }}</p>
+        <p>{{ pc.user.email }}</p>
+      </div>
+
+      <h3 class="ui top attached header">
+        Quick Links
+      </h3>
+      <div class="ui attached segment aligned">
+        <p><a href="#">Search for Spaces</a></p>
+        <p><a href="#">View Reservations</a></p>
+        <p><a href="#">Open Requests</a></p>
+      </div>
+
+    </div>
+
+    <div class="twelve wide column">
+
+      <h3 class="ui top attached header">
+        Open Requests
+      </h3>
+      <div class="ui attached segment" ng-show="true">
+        <div class="ui vertical segment" ng-repeat="s in pc.user.spaces">
+          <div class="ui vertical padded segment" ng-hide="r.confirmed" ng-repeat="r in s.reservations">
+            <button class="ui button" ng-click="pc.acceptRequest(r._id)" style="float: right">Confirm</button>
+            <a ui-sref="reservationsShow({id: r._id})"><h3 class="no-margin">{{s.title}}</h3></a>
+            <p>{{r.date.from | date}} - {{r.date.from | date}}</p>
+          </div>
+          <!-- <img class="dash-avatar" ng-src="{{ s.image_url }}" alt="" />
+          <a ui-sref="spacesShow({id: s._id})"><h3>{{ s.title }}</h3></a><br>
+          <p>{{ s.address.line_1 }}<br>
+          <span ng-show="s.address.line_2.length > 0">{{ s.address.line_2 }}<br></span>
+          {{ s.address.city }}, {{ s.address.state }} {{ s.address.zip_code }}</p>
+          <p>{{ s.description }}</p>
+          <div class="ui label">
+            <i class="pencil icon"></i> {{ s.reviews.length }} review<span ng-if="s.reviews.length != 1">s</span>
+          </div> -->
+        </div>
+      </div>
+
+      <h3 class="ui top attached header">
+        Accepted Requests
+      </h3>
+      <div class="ui attached segment" ng-show="true">
+        <div class="ui vertical segment" ng-repeat="s in pc.user.spaces">
+          <div class="ui vertical padded segment" ng-show="r.confirmed" ng-repeat="r in s.reservations">
+            <h3 class="no-margin">{{s.title}}</h3>
+            <p>{{r.date.from | date}} - {{r.date.from | date}}</p>
+          </div>
+          <!-- <img class="dash-avatar" ng-src="{{ s.image_url }}" alt="" />
+          <a ui-sref="spacesShow({id: s._id})"><h3>{{ s.title }}</h3></a><br>
+          <p>{{ s.address.line_1 }}<br>
+          <span ng-show="s.address.line_2.length > 0">{{ s.address.line_2 }}<br></span>
+          {{ s.address.city }}, {{ s.address.state }} {{ s.address.zip_code }}</p>
+          <p>{{ s.description }}</p>
+          <div class="ui label">
+            <i class="pencil icon"></i> {{ s.reviews.length }} review<span ng-if="s.reviews.length != 1">s</span>
+          </div> -->
+        </div>
+      </div>
+
+      <h3 class="ui top attached header">
+        Reservations
+      </h3>
+      <div class="ui attached segment" ng-show="pc.user.reservations.length > 0">
+        <div class="ui vertical padded segment" ng-repeat="r in pc.user.reservations">
+          <img class="dash-avatar" ng-src="{{ r._space.image_url }}" alt="" />
+          <a ui-sref="reservationsShow({id: r._id})"><h3>{{ r._space.title }}</h3></a>
+          <br>
+          <p>{{ r._space.address.line_1 }}<br>
+          <span ng-show="r._space.address.line_2.length > 0">{{ r._space.address.line_2 }}<br></span>
+          {{ r._space.address.city }}, {{ r._space.address.state }} {{ r._space.address.zip_code }}</p>
+          <p>{{ r._space.description }}</p>
+          <p>{{ r.date.from | date }} - {{ r.date.to | date }}</p>
+          <p ng-hide="r.confirmed" class="gray"><i class="warning circle icon"></i> Pending</p>
+          <p ng-show="r.confirmed" class="success"><i class="check circle icon"></i> Confirmed</p>
+
+          <p>{{ r.space }}</p>
+        </div>
+
+      </div>
+      <div class="ui bottom attached segment">
+        <a ui-sref="search">Search for spaces</a>
+      </div>
+
+      <h3 class="ui top attached header">
+        Spaces
+      </h3>
+      <div class="ui attached segment" ng-show="pc.user.spaces.length > 0">
+        <div class="ui vertical padded segment" ng-repeat="s in pc.user.spaces">
+          <img class="dash-avatar" ng-src="{{ s.image_url }}" alt="" />
+          <a ui-sref="spacesShow({id: s._id})"><h3>{{ s.title }}</h3></a><br>
+          <p>{{ s.address.line_1 }}<br>
+          <span ng-show="s.address.line_2.length > 0">{{ s.address.line_2 }}<br></span>
+          {{ s.address.city }}, {{ s.address.state }} {{ s.address.zip_code }}</p>
+          <p>{{ s.description }}</p>
+          <div class="ui label">
+            <i class="pencil icon"></i> {{ s.reviews.length }} review<span ng-if="s.reviews.length != 1">s</span>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached segment">
+        <a ui-sref="spacesNew">Add a new space</a>
+      </div>
+    </div>
+  </div>
+</div>

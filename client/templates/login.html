@@ -1,0 +1,35 @@
+<div class="ui container">
+
+  <div class="ui stackable grid">
+
+    <div class="five wide column"></div>
+
+    <div class="six wide column">
+      <div class="ui segment">
+
+        <form class="ui form" ng-submit="lc.authenticateUser()">
+          <div class="field">
+            <label>Username</label>
+            <input type="text" placeholder="johndoe" ng-model="lc.user.username" required minlength="8">
+          </div>
+
+          <div class="field">
+            <label>Password</label>
+            <input type="password" ng-model="lc.user.password">
+          </div>
+
+          <!-- <input class="ui button" type="submit" value="Register" ng-disabled="!(agree && (lc.user.password == lc.user.confirmPassword) && lc.user.password.length > 0)"> -->
+          <input class="ui button" type="submit" value="Login">
+        </form>
+
+      </div>
+
+      <!-- <div class=""> -->
+        New to SPOT? Register <a ui-sref="home">here</a>.
+      <!-- </div> -->
+    </div>
+
+    <div class="five wide column"></div>
+
+  </div>
+</div>

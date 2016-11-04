@@ -1,0 +1,75 @@
+<div class="ui active inverted dimmer" ng-show="rc.isLoading">
+  <div class="ui text loader">Loading</div>
+</div>
+<div class="ui container" ng-init="agree = false">
+  <div class="ui stackable grid">
+
+    <div class="ten wide column">
+      <h1 class="site-title">SPOT</h1>
+      <h2 class="site-subtitle">It's not my garage, it's our garage.</h2>
+      <a ui-sref="login" class="ui themed button">Login</a>
+    </div>
+
+    <div class="six wide column">
+      <br>
+      <div class="ui segment">
+
+        <form class="ui form" ng-submit="rc.createUser()">
+          <h2>New to SPOT? Register!</h2>
+          <div class="field">
+            <label>Username <small>(8 character minimum)</small></label>
+            <input type="text" placeholder="johndoe" ng-model="rc.newUser.username" required minlength="8">
+          </div>
+
+          <div class="field">
+            <label>E-mail</label>
+            <input type="email" placeholder="johndoe@example.com" ng-model="rc.newUser.email" required>
+          </div>
+
+          <div class="field">
+            <label>Full Name</label>
+            <input type="text" placeholder="John Doe" ng-model="rc.newUser.name" required>
+          </div>
+
+          <div class="field">
+            <label>Password</label>
+            <input type="password" ng-model="rc.newUser.password">
+          </div>
+
+          <div class="field">
+            <label>Confirm password</label>
+            <input type="password" ng-model="rc.newUser.confirmPassword">
+          </div>
+
+          <div class="field">
+            <div class="ui checkbox">
+              <input type="checkbox" ng-model="agree">
+              <label>I agree to the <a href="#">Terms and Conditions</a></label>
+            </div>
+          </div>
+
+          <!-- <input class="ui button" type="submit" value="Register" ng-disabled="!(agree && (rc.newUser.password == rc.newUser.confirmPassword) && rc.newUser.password.length > 0)"> -->
+          <input class="ui button" type="submit" value="Register">
+        </form>
+
+      </div>
+    </div>
+
+
+
+  </div>
+
+</div>
+
+<style>
+  body{
+    background-image: url('https://s3-us-west-1.amazonaws.com/hunt-la/spot.png');
+    background-position: center center;
+    background-size: cover;
+    /*color: #FFF;*/
+  }
+
+  .container{
+    padding-top: 40px;
+  }
+</style>

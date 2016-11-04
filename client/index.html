@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <!-- JavaScript -->
+    <script src="/js/vendor/angular.js" charset="utf-8"></script>
+    <script src="/js/vendor/angular-ui-router.js" charset="utf-8"></script>
+    <script src="/js/app.js" charset="utf-8"></script>
+    <script src="/js/filters/dateConverter.js" charset="utf-8"></script>
+
+    <script src="/js/controllers/mainCtrl.js" charset="utf-8"></script>
+    <script src="/js/controllers/registerCtrl.js" charset="utf-8"></script>
+    <script src="/js/controllers/loginCtrl.js" charset="utf-8"></script>
+    <script src="/js/controllers/logoutCtrl.js" charset="utf-8"></script>
+
+    <script src="/js/services/profileFactory.js" charset="utf-8"></script>
+    <script src="/js/controllers/profile/profileCtrl.js" charset="utf-8"></script>
+    <script src="/js/controllers/profile/profileShowCtrl.js" charset="utf-8"></script>
+    <script src="/js/controllers/profile/profileEditCtrl.js" charset="utf-8"></script>
+
+    <script src="/js/services/spacesFactory.js" charset="utf-8"></script>
+    <script src="/js/controllers/spaces/spacesCtrl.js" charset="utf-8"></script>
+    <script src="/js/controllers/spaces/spacesShowCtrl.js" charset="utf-8"></script>
+    <script src="/js/controllers/spaces/spacesNewCtrl.js" charset="utf-8"></script>
+
+    <script src="/js/services/searchFactory.js" charset="utf-8"></script>
+    <script src="/js/controllers/search/searchCtrl.js" charset="utf-8"></script>
+
+    <script src="/js/services/reservationsFactory.js" charset="utf-8"></script>
+    <script src="/js/controllers/reservations/reservationsCtrl.js" charset="utf-8"></script>
+    <script src="/js/controllers/reservations/reservationsShowCtrl.js" charset="utf-8"></script>
+
+    <script src="/js/services/messagesFactory.js" charset="utf-8"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/dist/semantic.css">
+    <link rel="stylesheet" href="/css/styles.css">
+
+    <title></title>
+  </head>
+  <body ng-app="app" ng-controller="MainController as mc">
+    <navigation-bar></navigation-bar>
+    <div class="ui page main">
+      <ui-view></ui-view>
+    </div>
+    <footer></footer>
+
+  </body>
+</html>
