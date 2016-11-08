@@ -58,7 +58,7 @@
         Accepted Requests
       </h3>
       <div class="ui attached segment" ng-show="true">
-        <div class="ui vertical segment" ng-repeat="s in pc.user.spaces">
+        <div class="ui segment" ng-repeat="s in pc.user.spaces">
           <div class="ui vertical padded segment" ng-show="r.confirmed" ng-repeat="r in s.reservations">
             <h3 class="no-margin">{{s.title}}</h3>
             <p>{{r.date.from | date}} - {{r.date.from | date}}</p>
