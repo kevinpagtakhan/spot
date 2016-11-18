@@ -61,7 +61,7 @@
         <div class="ui segment" ng-repeat="s in pc.user.spaces">
           <div class="ui vertical padded segment" ng-show="r.confirmed" ng-repeat="r in s.reservations">
             <h3 class="no-margin">{{s.title}}</h3>
-            <p>{{r.date.from | date}} - {{r.date.from | date}}</p>
+            <p>{{r.date.from | date}} - {{r.date.to | date}}</p>
           </div>
           <!-- <img class="dash-avatar" ng-src="{{ s.image_url }}" alt="" />
           <a ui-sref="spacesShow({id: s._id})"><h3>{{ s.title }}</h3></a><br>
