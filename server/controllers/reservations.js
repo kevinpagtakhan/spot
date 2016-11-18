@@ -29,7 +29,12 @@ var controller = {
             reservation.date.from = req.body.date.from;
             reservation.date.to = req.body.date.to;
             reservation.confirmed = false;
-            reservation.description = req.body.description;
+
+            var newMessage = new Object();
+            newMessage._by = req.user._id;
+            newMessage.content = req.body.description;
+
+            reservation.messages.push(newMessage);
 
             reservation.save(function(err, createdReservation){
               if(err) {
